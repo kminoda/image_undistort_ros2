@@ -51,4 +51,7 @@ void ImageUndistortNode::camera_info_callback(const sensor_msgs::msg::CameraInfo
   pub_camera_info_->publish(*msg);
 }
 
-}
+} // namespace image_undistort
+
+#include "rclcpp_components/register_node_macro.hpp"
+RCLCPP_COMPONENTS_REGISTER_NODE(image_undistort::ImageUndistortNode)

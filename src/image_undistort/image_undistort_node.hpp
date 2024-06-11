@@ -32,5 +32,5 @@ private:
   cv::Mat camera_matrix_;
   cv::Mat dist_coeffs_;
 };
-}
+} // namespace image_undistort
 #endif  // IMAGE_UNDISTORT_NODE__IMAGE_UNDISTORT_NODE_HPP__
