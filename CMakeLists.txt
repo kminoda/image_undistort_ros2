@@ -1,6 +1,9 @@
 cmake_minimum_required(VERSION 3.5)
 project(image_undistort)
 
+# OpenCV
+find_package(OpenCV REQUIRED)
+
 ## Compile options
 if(NOT CMAKE_CXX_STANDARD)
   set(CMAKE_CXX_STANDARD 17)
@@ -19,6 +22,17 @@ ament_auto_find_build_dependencies()
 ## Targets
 ament_auto_add_library(image_undistort_node_component SHARED
   src/image_undistort/image_undistort_node.cpp
+)
+
+target_include_directories(
+  image_undistort_node_component PRIVATE
+  SYSTEM
+  ${OpenCV_INCLUDE_DIRS}
+)
+
+target_link_libraries(
+  image_undistort_node_component
+  ${OpenCV_LIBRARIES}
 )
 
 rclcpp_components_register_node(image_undistort_node_component

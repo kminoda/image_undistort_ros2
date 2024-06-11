@@ -1,12 +1,12 @@
 <launch>
-  <arg name="input/image" default="/sensing/camera/camera0/image_raw/compressed"/>
+  <arg name="input/image/compressed" default="/sensing/camera/camera0/image_raw/compressed"/>
   <arg name="input/camera_info" default="/sensing/camera/camera0/camera_info"/>
-  <arg name="output/image" default="/sensing/camera/camera0/rectified/image_raw/compressed"/>
+  <arg name="output/image/compressed" default="/sensing/camera/camera0/rectified/image_raw/compressed"/>
   <arg name="output/camera_info" default="/sensing/camera/camera0/rectified/camera_info"/>
   <node pkg="image_undistort" exec="image_undistort_node" name="image_undistort" output="both">
-    <remap from="~/input/image" to="$(var input/image)"/>
+    <remap from="~/input/image/compressed" to="$(var input/image/compressed)"/>
     <remap from="~/input/camera_info" to="$(var input/camera_info)"/>
-    <remap from="~/output/image" to="$(var output/image)"/>
+    <remap from="~/output/image/compressed" to="$(var output/image/compressed)"/>
     <remap from="~/output/camera_info" to="$(var output/camera_info)"/>
   </node>
 </launch>

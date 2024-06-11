@@ -20,13 +20,13 @@ private:
 public:
   explicit ImageUndistortNode(const rclcpp::NodeOptions & node_options);
 private:
-  void camera_image_callback(const Image::ConstSharedPtr & msg);
+  void image_callback(const Image::ConstSharedPtr & msg);
   void camera_info_callback(const CameraInfo::ConstSharedPtr & msg);
 
-  image_transport::Subscriber sub_image_;
+  image_transport::Subscriber sub_compressed_image_;
   rclcpp::Subscription<CameraInfo>::SharedPtr sub_camera_info_;
 
-  image_transport::Publisher pub_image_;
+  image_transport::Publisher pub_compressed_image_;
   rclcpp::Publisher<CameraInfo>::SharedPtr pub_camera_info_;
 
   cv::Mat camera_matrix_;
